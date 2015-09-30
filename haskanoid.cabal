@@ -71,37 +71,39 @@ executable haskanoid
   hs-source-dirs: src/
 
   -- Modules included in this executable, other than Main.
-  other-modules: Audio
-                 Constants
-                 Control.Extra.Monad
-                 Data.Extra.List
-                 Data.Extra.Num
-                 Data.Extra.Ord
-                 Data.Extra.VectorSpace
-                 Data.IdentityList
+  other-modules: Constants
                  Display
-                 FRP.Extra.Yampa
                  Game
                  GameCollisions
                  GameState
-                 Graphics.UI.Extra.SDL
                  Input
                  Levels
                  Objects
                  ObjectSF
-                 Physics.TwoDimensions.Collisions
-                 Physics.TwoDimensions.Dimensions
-                 Physics.TwoDimensions.Physics
                  Resources
 
   -- Other library packages from which modules are imported.
   build-depends:       base > 4.6 && < 5,
                        transformers >= 0.3 && < 0.5,
                        mtl,
+                       IfElse,
                        MissingH,
+
+                       -- FRP stuff
                        Yampa >= 0.9.6 && < 0.11,
+                       yampa-extra,
+
+                       -- SDL stuff
                        SDL, SDL-image, SDL-mixer, SDL-ttf,
-                       IfElse
+                       sdl-clock,
+
+                       -- Auxiliary data structures
+                       missing-game,
+                       identity-list,
+
+                       -- Game stuff
+                       game-audio-sdl,
+                       game-physics-2d-rectangles
 
   if flag(wiimote)
     build-depends: hcwiid
