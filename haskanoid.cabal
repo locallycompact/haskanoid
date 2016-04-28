@@ -80,6 +80,7 @@ executable haskanoid
                  Data.IdentityList
                  Display
                  FRP.Extra.Yampa
+                 Game.Audio
                  Game
                  GameCollisions
                  GameState
@@ -94,7 +95,7 @@ executable haskanoid
                  Resources
 
   -- Other library packages from which modules are imported.
-  build-depends:       base ==4.6.*,
+  build-depends:       base >=4.6 && < 5,
                        transformers >= 0.3 && < 0.5,
                        mtl,
                        MissingH,
